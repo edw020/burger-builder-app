@@ -26,7 +26,6 @@ const orderSummary = props => {
 };
 
 orderSummary.propTypes = {
-    ingredients: PropTypes.object,
     price: PropTypes.number,
     purchaseCancelled: PropTypes.func,
     purchaseContinued: PropTypes.func
