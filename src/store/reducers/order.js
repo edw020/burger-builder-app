@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
+import { updateObject} from '../utility';
 
 const initState = {
     orders: [],
@@ -6,36 +7,37 @@ const initState = {
     purchased: false
 };
 
+const purchaseInit = state => updateObject(state, {purchased: false});
+const purchaseBurgerStart = state => updateObject(state, {loading: true});
+const purchaseBurgerSuccess = (state, action) => {
+    const newOrder = updateObject(action.orderData, {id: action.orderId});
+    const updatedState = {
+        loading: false,
+        orders: state.orders.concat(newOrder),
+        purchased: true
+    };
+    return updateObject(state, updatedState);
+};
+const purchaseBurgerFail = state => updateObject(state, {loading: false});
+const fetchOrdersStart = state => updateObject(state, {loading: true});
+const fetchOrdersSuccess = (state, action) => {
+    return updateObject(state, {
+        orders: action.orders,
+        loading: false
+    });
+};
+const fetchOrdersFail = state => updateObject(state, {loading: false});
+
 const reducer = (state = initState, action) => {
     switch (action.type) {
-        case actionTypes.PURCHASE_INIT:
-            return {
-                ...state,
-                purchased: false
-            };
-        case actionTypes.PURCHASE_BURGER_START:
-            return {
-                ...state,
-                loading: true
-            };
-        case actionTypes.PURCHASE_BURGER_SUCCESS:
-            const newOrder = {
-                ...action.orderData,
-                id: action.orderId
-            };
-            return {
-                ...state,
-                loading: false,
-                orders: state.orders.concat(newOrder),
-                purchased: true
-            };
-        case actionTypes.SET_INGREDIENTS_FAILED:
-            return {
-                ...state,
-                loading: false
-            };
-        default:
-            return state;
+        case actionTypes.PURCHASE_INIT: return purchaseInit(state);
+        case actionTypes.PURCHASE_BURGER_START: return purchaseBurgerStart(state);
+        case actionTypes.PURCHASE_BURGER_SUCCESS: return purchaseBurgerSuccess(state, action);
+        case actionTypes.PURCHASE_BURGER_FAIL: return purchaseBurgerFail(state);
+        case actionTypes.FETCH_ORDERS_START: return fetchOrdersStart(state);
+        case actionTypes.FETCH_ORDERS_SUCCESS: return fetchOrdersSuccess(state, action);
+        case actionTypes.FETCH_ORDERS_FAIL: return fetchOrdersFail(state);
+        default: return state;
     }
 };
 
