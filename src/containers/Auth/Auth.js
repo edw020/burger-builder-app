@@ -7,6 +7,7 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import classes from './Auth.css';
 import * as actions from '../../store/actions/index';
 import {setAuthRedirectPath} from "../../store/actions/index";
+import {updateObject} from '../../shared/utility';
 
 
 class Auth extends Component{
@@ -78,20 +79,13 @@ class Auth extends Component{
     }
 
     inputChangedHandler = (event, controlName) => {
-        const updatedControls = {
-            ...this.state.controls,
-            [controlName]: {
-                ...this.state.controls[controlName],
+        const updatedControls = updateObject(this.state.controls, {
+            [controlName]: updateObject(this.state.controls[controlName], {
                 value: event.target.value,
                 valid: this.checkValidity(event.target.value, this.state.controls[controlName].validation),
                 touched: true
-            }
-        };
-
-        /*let formIsValid = true;
-        for(let inputIdentifier in updatedControls)
-            formIsValid = updatedControls[inputIdentifier].valid && formIsValid;*/
-
+            })
+        });
         this.setState({controls: updatedControls});
     };
 
@@ -134,7 +128,7 @@ class Auth extends Component{
         if(this.props.loading)
             form = <Spinner/>;
 
-        const errorMessage = this.props.error?<p>{this.props.error.message}</p>:null;
+        const errorMessage = this.props.error ? <p>{this.props.error.message}</p>:null;
         const authRedirect = this.props.isAuthenticated ? <Redirect to={this.props.authRedirectPath} /> : null;
 
         return(
