@@ -29,27 +29,6 @@ class BurgerBuilder extends Component{
         return sum > 0;
     }
 
-    /*addIngredientHandler = type => {
-        const updatedIngredients = {...this.state.ingredients};
-        updatedIngredients[type] = this.state.ingredients[type]+1;
-        const newPrice = this.state.totalPrice + INGREDIENT_PRICES[type];
-
-        this.setState({totalPrice: newPrice, ingredients: updatedIngredients});
-        this.updatePurchaseState(updatedIngredients);
-    };
-
-    removeIngredientHandler = type => {
-        const updatedIngredients = {...this.state.ingredients};
-        if(this.state.ingredients[type] <= 0)
-            return;
-
-        updatedIngredients[type] = this.state.ingredients[type]-1;
-        const newPrice = this.state.totalPrice - INGREDIENT_PRICES[type];
-
-        this.setState({totalPrice: newPrice, ingredients: updatedIngredients});
-        this.updatePurchaseState(updatedIngredients);
-    };*/
-
     purchaseHandler = () => {
         if(this.props.isAuthenticated)
             this.setState({purchasing: true});
