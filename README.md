@@ -1,6 +1,33 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Burger Builder App
 
-## Available Scripts
+This is a practice project created with the purpose of applying all the concepts related to ReactJS.
+
+It contains a simple SPA which lets you build a burger with some basic ingredients and make an order for that built burger. Also provides authentication options for being able store orders for and specific user.
+
+## Live version
+
+You can find the live current version of this project running on https://react-burger-builder-4d3d6.firebaseapp.com/
+
+### Technical details
+
+This project foundation was created by using creat-react-app lib, and react v16.8.4
+
+The features used on this project are:
+
+- Class based components for containers.
+- Stateless components for view related components.
+- Redux and redux-thunk for managing state.
+- React-router-dom for routing.
+- Lazy loading for some components.
+- Firebase used as db provider (and hosting).
+- Unit Tests (by Using Jest and Enzyme).
+
+### Special Implementations
+
+- Implemented redux-saga as an alternative to redux-thunk (Check it on branch 'redux-saga-implementation').
+- Implemented react-hooks to convert all class based components on project to funcional components which use react-hooks for state managing and side-effects (Check it on branch 'react-hooks').
+
+## Commands
 
 In the project directory, you can run:
 
@@ -24,45 +51,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
