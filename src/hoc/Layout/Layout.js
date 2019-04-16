@@ -30,7 +30,7 @@ class Layout extends Component{
                     {this.props.children}
                 </main>
             </Aux>
-        )
+        );
     }
 }
 
@@ -41,7 +41,7 @@ Layout.propTypes = {
 const mapStateToProps = state => {
     return {
         isAuthenticated: state.auth.token !== null
-    }
+    };
 };
 
 export default connect(mapStateToProps)(Layout);

@@ -43,7 +43,7 @@ const mapStateToProps = state => {
     return {
         ingredients: state.burgerBuilder.ingredients,
         purchased: state.order.purchased
-    }
+    };
 };
 
 export default connect(mapStateToProps)(Checkout);

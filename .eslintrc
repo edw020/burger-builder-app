@@ -1,0 +1,30 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/recommended"
+  ],
+  "rules": {
+    "react/prop-types": 0, // FIXME Remove after adding prop-types to all comps
+    "react/no-unescaped-entities": 0,
+    "react/display-name": 0,
+    "react/no-deprecated": 0,
+    "semi": [2, "always"],
+    "quotes": [2, "single"],
+    "no-unused-vars": 1,
+    "import/no-named-as-default": 0
+  },
+  "plugins": [
+    "import",
+    "react"
+  ],
+  "globals": {
+    "process": true
+  },
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true
+  }
+}

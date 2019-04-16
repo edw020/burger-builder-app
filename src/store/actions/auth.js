@@ -5,7 +5,7 @@ import * as actionTypes from './actionTypes';
 export const authStart = () => {
     return {
         type: actionTypes.AUTH_START
-    }
+    };
 };
 
 export const authSuccess = (token, userId) => {
@@ -13,14 +13,14 @@ export const authSuccess = (token, userId) => {
         type: actionTypes.AUTH_SUCCESS,
         idToken: token,
         userId
-    }
+    };
 };
 
 export const authFail = error => {
     return {
         type: actionTypes.AUTH_FAIL,
         error
-    }
+    };
 };
 
 export const logout = () => {
@@ -29,7 +29,7 @@ export const logout = () => {
     localStorage.removeItem('userId');
     return {
         type: actionTypes.AUTH_LOGOUT
-    }
+    };
 };
 
 export const checkAuthTimeout = expirationTime => {
@@ -37,7 +37,7 @@ export const checkAuthTimeout = expirationTime => {
         setTimeout(()=>{
             dispatch(logout());
         }, expirationTime * 1000);
-    }
+    };
 };
 
 export const auth = (email, password, isSignup) => {
@@ -75,7 +75,7 @@ export const setAuthRedirectPath = path => {
     return {
         type: actionTypes.SET_AUTH_REDIRECT_PATH,
         path
-    }
+    };
 };
 
 export const authCheckState = () => {
@@ -93,5 +93,5 @@ export const authCheckState = () => {
             } else
                 dispatch(logout());
         }
-    }
+    };
 };

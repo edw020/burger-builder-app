@@ -29,6 +29,6 @@ describe('auth reducer', () => {
             error: null,
             loading: false,
             authRedirectPath: '/'
-        })
+        });
     });
 });

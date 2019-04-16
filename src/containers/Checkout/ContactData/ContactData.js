@@ -144,7 +144,7 @@ class ContactData extends Component{
             formElementsArray.push({
                 id: key,
                 config: this.state.orderForm[key]
-            })
+            });
         }
 
         let form = (
@@ -186,13 +186,13 @@ const mapStateToProps = state => {
         loading: state.order.loading,
         token: state.auth.token,
         userId: state.auth.userId
-    }
+    };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         onOrderBurger: (orderData, token) => dispatch(actions.purchaseBurger(orderData, token))
-    }
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(ContactData, axios));

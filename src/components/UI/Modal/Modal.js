@@ -5,7 +5,7 @@ import Backdrop from '../Backdrop/Backdrop';
 
 class Modal extends Component {
     // Will update component content (OrderSummary children to be specific) only when show value changes
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate(nextProps) {
         return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
     }
 
@@ -23,7 +23,7 @@ class Modal extends Component {
                     {this.props.children}
                 </div>
             </Aux>
-        )
+        );
     }
 }
 

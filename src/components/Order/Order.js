@@ -20,7 +20,7 @@ const order = props => {
                 }}
                 key={ig.name}
             >{ig.name} ({ig.amount})</span>
-        )
+        );
     });
 
     return (
@@ -28,7 +28,7 @@ const order = props => {
             <p>Ingredients: {ingredientOutput}</p>
             <p>Price: <strong>USD {props.price.toFixed(2)}</strong></p>
         </div>
-    )
+    );
 };
 
 export default order;

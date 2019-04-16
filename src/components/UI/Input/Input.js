@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import classes from './Input.css';
 
 const input = props => {
@@ -29,7 +29,7 @@ const input = props => {
             );
             break;
         default:
-            inputElement = <input {...props.elementConfig} className={inputClasses.join(' ')} value={props.value} onChange={props.changed} />
+            inputElement = <input {...props.elementConfig} className={inputClasses.join(' ')} value={props.value} onChange={props.changed} />;
     }
 
     return (
@@ -37,7 +37,7 @@ const input = props => {
             <label className={classes.Label}>{props.label}</label>
             {inputElement}
         </div>
-    )
+    );
 };
 
 export default input;

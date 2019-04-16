@@ -31,13 +31,13 @@ const mapStateToProps = state => {
         loading: state.order.loading,
         token: state.auth.token,
         userId: state.auth.userId
-    }
+    };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         onFetchOrders: (token, userId) => dispatch(actions.fetchOrders(token, userId))
-    }
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Orders, axios));

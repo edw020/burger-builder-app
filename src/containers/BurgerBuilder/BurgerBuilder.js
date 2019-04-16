@@ -25,7 +25,7 @@ export class BurgerBuilder extends Component{
     }
 
     updatePurchaseState (ingredients) {
-        const sum = Object.keys(ingredients).map(igKey => ingredients[igKey]).reduce((sum, el) => {return sum + el}, 0);
+        const sum = Object.keys(ingredients).map(igKey => ingredients[igKey]).reduce((sum, el) => {return sum + el;}, 0);
         return sum > 0;
     }
 
@@ -52,7 +52,7 @@ export class BurgerBuilder extends Component{
             ...this.props.ingredients
         };
         for(let key in disabledInfo){
-            disabledInfo[key] = disabledInfo[key] <= 0
+            disabledInfo[key] = disabledInfo[key] <= 0;
         }
 
         let orderSummary = null;
@@ -99,7 +99,7 @@ const mapStateToProps = state => {
         totalPrice: state.burgerBuilder.totalPrice,
         error: state.burgerBuilder.error,
         isAuthenticated: state.auth.token !== null
-    }
+    };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -109,7 +109,7 @@ const mapDispatchToProps = dispatch => {
         onInitIngredients: () => dispatch(actions.initIngredients()),
         onInitPurchase: () => dispatch(actions.purchaseInit()),
         onSetAuthRedirectPath: (path) => dispatch(actions.setAuthRedirectPath(path))
-    }
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(BurgerBuilder, axios));

@@ -6,7 +6,6 @@ import Button from '../../components/UI/Button/Button';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import classes from './Auth.css';
 import * as actions from '../../store/actions/index';
-import {setAuthRedirectPath} from "../../store/actions/index";
 import {updateObject, checkValidity} from '../../shared/utility';
 
 
@@ -70,7 +69,7 @@ class Auth extends Component{
         this.setState(prevState => {
             return {
                 isSignUp: !prevState.isSignUp
-            }
+            };
         });
     };
 
@@ -81,7 +80,7 @@ class Auth extends Component{
             formElementsArray.push({
                 id: key,
                 config: this.state.controls[key]
-            })
+            });
         }
 
         let form = formElementsArray.map(formElement => (
@@ -124,14 +123,14 @@ const mapStateToProps = state => {
         isAuthenticated: state.auth.token !== null,
         buildingBurger: state.burgerBuilder.building,
         authRedirectPath: state.auth.authRedirectPath
-    }
+    };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup)),
-        onSetAuthRedirectPath: () => dispatch(setAuthRedirectPath('/'))
-    }
+        onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auth);

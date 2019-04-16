@@ -51,13 +51,13 @@ class App extends Component {
 const mapStateToProps = state => {
     return {
         isAuthenticated: state.auth.token !== null
-    }
+    };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         onTryAutoSignup: () => dispatch(actionTypes.authCheckState())
-    }
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
