@@ -9,6 +9,7 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import axios from '../../axios-orders';
 import * as actions from '../../store/actions/index';
+import PropTypes from 'prop-types';
 
 export class BurgerBuilder extends Component{
     /*constructor(props){
@@ -110,6 +111,19 @@ const mapDispatchToProps = dispatch => {
         onInitPurchase: () => dispatch(actions.purchaseInit()),
         onSetAuthRedirectPath: (path) => dispatch(actions.setAuthRedirectPath(path))
     };
+};
+
+BurgerBuilder.propTypes = {
+    onInitIngredients: PropTypes.func,
+    isAuthenticated: PropTypes.bool,
+    onSetAuthRedirectPath: PropTypes.func,
+    history: PropTypes.object,
+    onInitPurchase: PropTypes.func,
+    ingredients: PropTypes.object,
+    error: PropTypes.bool,
+    onIngredientAdded: PropTypes.func,
+    onIngredientRemoved: PropTypes.func,
+    totalPrice: PropTypes.number
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(BurgerBuilder, axios));

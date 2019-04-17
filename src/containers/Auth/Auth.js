@@ -7,6 +7,7 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import classes from './Auth.css';
 import * as actions from '../../store/actions/index';
 import {updateObject, checkValidity} from '../../shared/utility';
+import PropTypes from 'prop-types';
 
 
 class Auth extends Component{
@@ -131,6 +132,16 @@ const mapDispatchToProps = dispatch => {
         onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup)),
         onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
     };
+};
+
+Auth.propTypes = {
+    buildingBurger: PropTypes.bool,
+    authRedirectPath: PropTypes.string,
+    onSetAuthRedirectPath: PropTypes.func,
+    onAuth: PropTypes.func,
+    loading: PropTypes.bool,
+    error: PropTypes.object,
+    isAuthenticated: PropTypes.bool
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auth);

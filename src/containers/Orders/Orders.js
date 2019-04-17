@@ -5,6 +5,7 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import PropTypes from 'prop-types';
 
 class Orders extends Component{
     componentDidMount() {
@@ -38,6 +39,14 @@ const mapDispatchToProps = dispatch => {
     return {
         onFetchOrders: (token, userId) => dispatch(actions.fetchOrders(token, userId))
     };
+};
+
+Orders.propTypes = {
+    onFetchOrders: PropTypes.func,
+    token: PropTypes.string,
+    userId: PropTypes.string,
+    loading: PropTypes.bool,
+    orders: PropTypes.array
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Orders, axios));

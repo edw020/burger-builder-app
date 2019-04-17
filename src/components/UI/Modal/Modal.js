@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import classes from './Modal.css';
 import Aux from '../../../hoc/Aux/Aux';
 import Backdrop from '../Backdrop/Backdrop';
+import PropTypes from 'prop-types';
 
 class Modal extends Component {
     // Will update component content (OrderSummary children to be specific) only when show value changes
@@ -26,5 +27,10 @@ class Modal extends Component {
         );
     }
 }
+
+Modal.propTypes = {
+    show: PropTypes.bool,
+    modalClosed: PropTypes.func
+};
 
 export default Modal;

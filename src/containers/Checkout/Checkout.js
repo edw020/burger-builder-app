@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Route, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-
+import PropTypes from 'prop-types';
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
 import ContactData from './ContactData/ContactData';
 
@@ -44,6 +44,13 @@ const mapStateToProps = state => {
         ingredients: state.burgerBuilder.ingredients,
         purchased: state.order.purchased
     };
+};
+
+Checkout.propTypes = {
+    history: PropTypes.object,
+    ingredients: PropTypes.object,
+    purchased: PropTypes.bool,
+    match: PropTypes.object
 };
 
 export default connect(mapStateToProps)(Checkout);
