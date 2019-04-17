@@ -2,6 +2,7 @@ import React from 'react';
 
 import classes from './NavigationItems.css';
 import NavigationItem from './NavigationItem/NavigationItem';
+import PropTypes from 'prop-types';
 
 const navigationItems = props => (
     <ul className={classes.Navigationitems}>
@@ -12,5 +13,9 @@ const navigationItems = props => (
                 : <NavigationItem link="/auth">Authenticate</NavigationItem>}
     </ul>
 );
+
+navigationItems.propTypes = {
+    isAuth: PropTypes.bool
+};
 
 export default navigationItems;

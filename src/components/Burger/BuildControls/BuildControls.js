@@ -36,7 +36,10 @@ buildControls.propTypes = {
     ingredientAdded: PropTypes.func,
     ingredientRemoved: PropTypes.func,
     purchasable: PropTypes.bool,
-    ordered: PropTypes.func
+    ordered: PropTypes.func,
+    price: PropTypes.number,
+    disabled: PropTypes.object,
+    isAuth: PropTypes.bool
 };
 
 export default buildControls;

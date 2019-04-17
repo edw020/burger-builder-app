@@ -6,7 +6,7 @@
     "plugin:import/recommended"
   ],
   "rules": {
-    "react/prop-types": 0, // FIXME Remove after adding prop-types to all comps
+    "react/prop-types": [2, { ignore: ["children"] }],
     "react/no-unescaped-entities": 0,
     "react/display-name": 0,
     "react/no-deprecated": 0,

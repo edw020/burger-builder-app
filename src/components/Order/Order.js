@@ -1,6 +1,7 @@
 import React from 'react';
 
 import classes from './Order.css';
+import PropTypes from 'prop-types';
 
 const order = props => {
     const ingredients = [];
@@ -29,6 +30,11 @@ const order = props => {
             <p>Price: <strong>USD {props.price.toFixed(2)}</strong></p>
         </div>
     );
+};
+
+order.propTypes = {
+    ingredients: PropTypes.object,
+    price: PropTypes.number
 };
 
 export default order;

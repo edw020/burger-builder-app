@@ -27,7 +27,8 @@ const orderSummary = props => {
 orderSummary.propTypes = {
     price: PropTypes.number,
     purchaseCancelled: PropTypes.func,
-    purchaseContinued: PropTypes.func
+    purchaseContinued: PropTypes.func,
+    ingredients: PropTypes.object
 };
 
 export default orderSummary;

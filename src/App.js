@@ -6,6 +6,7 @@ import Layout from './hoc/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 import Logout from './containers/Auth/Logout/Logout';
 import * as actionTypes from './store/actions/index';
+import PropTypes from 'prop-types';
 
 const asyncCheckout = asyncComponent(() => import('./containers/Checkout/Checkout'));
 const asyncOrders = asyncComponent(() => import('./containers/Orders/Orders'));
@@ -58,6 +59,11 @@ const mapDispatchToProps = dispatch => {
     return {
         onTryAutoSignup: () => dispatch(actionTypes.authCheckState())
     };
+};
+
+App.propTypes = {
+    onTryAutoSignup: PropTypes.func,
+    isAuthenticated: PropTypes.bool,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

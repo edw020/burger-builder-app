@@ -5,6 +5,7 @@ import NavigationItems from '../NavigationItems/NavigationItems';
 import classes from './SideDrawer.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import Aux from '../../../hoc/Aux/Aux';
+import PropTypes from 'prop-types';
 
 const sideDrawer = props => {
     let attachedClasses = [classes.SideDrawer, classes.Close];
@@ -25,6 +26,12 @@ const sideDrawer = props => {
             </div>
         </Aux>
     );
+};
+
+sideDrawer.propTypes = {
+    open: PropTypes.bool,
+    closed: PropTypes.func,
+    isAuth: PropTypes.bool
 };
 
 export default sideDrawer;

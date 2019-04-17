@@ -2,6 +2,7 @@ import React from 'react';
 import Burger from '../../Burger/Burger';
 import Button from '../../UI/Button/Button';
 import classes from './CheckoutSummary.css';
+import PropTypes from 'prop-types';
 
 const checkoutSummary = props => {
     return (
@@ -14,6 +15,12 @@ const checkoutSummary = props => {
             <Button btnType="Success" clicked={props.checkoutContinued}>CONTINUE</Button>
         </div>
     );
+};
+
+checkoutSummary.propTypes = {
+    ingredients: PropTypes.object,
+    checkoutCancelled: PropTypes.func,
+    checkoutContinued: PropTypes.func
 };
 
 export default checkoutSummary;

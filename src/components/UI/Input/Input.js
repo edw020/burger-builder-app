@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Input.css';
+import PropTypes from 'prop-types';
 
 const input = props => {
     let inputElement = null;
@@ -38,6 +39,17 @@ const input = props => {
             {inputElement}
         </div>
     );
+};
+
+input.propTypes = {
+    invalid: PropTypes.bool,
+    shouldValidate: PropTypes.object,
+    touched: PropTypes.bool,
+    elementType: PropTypes.string,
+    elementConfig: PropTypes.object,
+    value: PropTypes.string,
+    changed: PropTypes.func,
+    label: PropTypes.string
 };
 
 export default input;
