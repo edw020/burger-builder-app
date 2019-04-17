@@ -26,7 +26,7 @@ const order = props => {
 
     return (
         <div className={classes.Order}>
-            <p>Ingredients: {ingredientOutput}</p>
+            <p>Ingredients: {ingredientOutput} <button onClick={props.removeOrder}>Remove</button></p>
             <p>Price: <strong>USD {props.price.toFixed(2)}</strong></p>
         </div>
     );
@@ -34,7 +34,8 @@ const order = props => {
 
 order.propTypes = {
     ingredients: PropTypes.object,
-    price: PropTypes.number
+    price: PropTypes.number,
+    removeOrder: PropTypes.func
 };
 
 export default order;

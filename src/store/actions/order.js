@@ -75,3 +75,38 @@ export const fetchOrders = (token, userId) => {
             });
     };
 };
+
+export const removeOrderStart = () => {
+    return {
+        type: actionTypes.REMOVE_ORDER_START
+    };
+};
+
+export const removeOrderSuccess = orderId => {
+    return {
+        type: actionTypes.REMOVE_ORDER_SUCCESS,
+        orderId
+    };
+};
+
+export const removeOrderFail = error => {
+    return {
+        type: actionTypes.REMOVE_ORDER_FAIL,
+        error
+    };
+};
+
+export const removeOrder = (token, orderId) => {
+    return dispatch => {
+        dispatch(removeOrderStart());
+        const queryParams = '?auth='+token;
+
+        axios.delete(`/orders/${orderId}.json`+queryParams)
+            .then(res => {
+                dispatch(removeOrderSuccess(orderId));
+            })
+            .catch(err => {
+                dispatch(removeOrderFail(err));
+            });
+    };
+};

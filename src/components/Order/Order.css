@@ -6,3 +6,15 @@
     margin: 10px auto;
     box-sizing: border-box;
 }
+.Order p button{
+    color: white;
+    border: #ff615d;
+    background-color: #ff3d36;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 7px 12px;
+    float: right;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer;
+}
